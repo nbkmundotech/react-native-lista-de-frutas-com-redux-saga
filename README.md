@@ -1,4 +1,4 @@
-# Lista de Frutas
+# Lista de Frutas Com o Redux Saga
 
 Projeto do curso [Aplicativos Móveis com o React Native](https://www.udemy.com/aplicativos-moveis-com-o-react-native), por @nbkhope.
 
