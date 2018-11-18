@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   StyleSheet,
+  Text,
   View,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -14,10 +15,15 @@ import Titulo from './Titulo';
 import {
   adicionarItem,
   limparLista,
-  removerItem
+  removerItem,
+  obterItems
 } from '../actions';
 
 class Main extends React.Component {
+  componentDidMount() {
+    this.props.obterItems();
+  }
+
   onAdicionarFruta = (nome) => {
     this.props.adicionarItem(nome);
   }
@@ -40,6 +46,8 @@ class Main extends React.Component {
 
           <AdicionarFruta onAdicionarFruta={this.onAdicionarFruta} />
 
+          {this.props.frutasCarregando && <Text>Carregando lista...</Text>}
+          {this.props.frutasErro && <Text>Erro! {this.props.frutasErro}</Text>}
           <ListaDeFrutas
             frutas={this.props.frutas}
             onRemoverFruta={this.onRemoverFruta}
@@ -64,14 +72,17 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   return {
-    frutas: state
+    frutas: state.frutas,
+    frutasCarregando: state.frutasCarregando,
+    frutasErro: state.frutasErro
   };
 };
 
 const mapDispatchToProps = {
   adicionarItem: adicionarItem,
   removerItem: removerItem,
-  limparLista: limparLista
+  limparLista: limparLista,
+  obterItems
 };
 // const mapDispatchToProps = dispatch => {
 //   return bindActionCreators({

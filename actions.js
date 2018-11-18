@@ -1,8 +1,14 @@
+export const obterItems = () => {
+  return {
+    type: 'OBTER_ITEMS'
+  };
+};
+
 export const adicionarItem = (nome) => {
   return {
     type: 'ADICIONAR_ITEM',
     nome: nome,
-    id: 'abc' + Math.random()
+    // id: 'abc' + Math.random()
   }
 };
 
