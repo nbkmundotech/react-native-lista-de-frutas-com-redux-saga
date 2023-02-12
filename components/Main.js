@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Constants } from 'expo';
+import Constants from 'expo-constants';
 
 import AdicionarFruta from './AdicionarFruta';
 import LimparLista from './LimparLista';
